@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CITYMUSIC - Головна</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <!-- Шапка сайту -->
+    <header class="top-bar">
+        <button class="icon-btn">
+            <img src="assets/icons/icon-menu.svg" alt="Меню">
+        </button>
+        <img src="assets/images/logo.png" alt="CITYMUSIC" class="logo-img">
+        <button class="icon-btn">
+            <img src="assets/icons/icon-search.svg" alt="Пошук">
+        </button>
+    </header>
+
+    <main class="main-content">
+        <!-- Банер -->
+        <section class="banner">
+            <img src="assets/images/banner.png" alt="Знижки до 15%">
+        </section>
+
+        <!-- Новинки (Горизонтальний скрол) -->
+        <section class="new-arrivals">
+            <div class="section-header">
+                <h2 class="section-title">Новинки</h2>
+                <a href="#" class="view-all">Переглянути всі</a>
+            </div>
+            
+            <div class="categories">
+                <button class="cat-btn active">Усі</button>
+                <button class="cat-btn">Звук</button>
+                <button class="cat-btn">Клавішні</button>
+                <button class="cat-btn">Гітари</button>
+                <button class="cat-btn">Народні</button>
+            </div>
+
+            <div class="horizontal-scroll">
+                <!-- Картка Новинки 1 -->
+                <article class="product-card horizontal-card">
+                    <div class="image-wrapper relative">
+                        <button class="like-btn absolute-heart"><img src="assets/icons/icon-heart.svg" alt="В обране"></button>
+                        <img src="assets/images/piano-white.png" alt="Цифрове піаніно">
+                    </div>
+                    <h3 class="product-title">Цифрове піаніно Pearl River</h3>
+                    <div class="card-bottom">
+                        <span class="price">37 568.00 грн</span>
+                    </div>
+                </article>
+                
+                <!-- Картка Новинки 2 -->
+                <article class="product-card horizontal-card">
+                    <div class="image-wrapper relative">
+                        <button class="like-btn absolute-heart"><img src="assets/icons/icon-heart.svg" alt="В обране"></button>
+                        <img src="assets/images/bandura.png" alt="Бандура">
+                    </div>
+                    <h3 class="product-title">Бандура Acropolis</h3>
+                    <div class="card-bottom">
+                        <span class="price">39 536.00 грн</span>
+                    </div>
+                </article>
+                <!-- Картка Новинки 3 -->
+<article class="product-card horizontal-card">
+    <div class="image-wrapper relative">
+        <button class="like-btn absolute-heart"><img src="assets/icons/icon-heart.svg" alt="В обране"></button>
+        <img src="assets/images/marshall.png" alt="Підсилювач Marshall">
+    </div>
+    <h3 class="product-title">MARSHALL MG15G</h3>
+    <div class="card-bottom">
+        <span class="price">3336.00 грн</span>
+    </div>
+</article>
+            </div>
+        </section>
+
+        <!-- Рекомендуємо (Сітка) -->
+        <section class="recommended">
+            <h2 class="section-title">Рекомендуємо</h2>
+            <div class="product-grid">
+                
+                <!-- Картка Рекомендуємо 1 -->
+                <article class="product-card grid-card">
+                    <div class="image-wrapper">
+                        <img src="assets/images/elixir.png" alt="Струни Elixir">
+                    </div>
+                    <h3 class="product-title">Elixir EL OW L (010-046)</h3>
+                    <div class="card-bottom">
+                        <span class="price">774.00 грн</span>
+                        <button class="like-btn"><img src="assets/icons/icon-heart.svg" alt="В обране"></button>
+                    </div>
+                </article>
+
+                <!-- Картка Рекомендуємо 2 -->
+                <article class="product-card grid-card">
+                    <div class="image-wrapper">
+                        <img src="assets/images/guitar.png" alt="Гітара Alhambra">
+                    </div>
+                    <h3 class="product-title">Alhambra Z Nature</h3>
+                    <div class="card-bottom">
+                        <span class="price">33 999.00 грн</span>
+                        <button class="like-btn"><img src="assets/icons/icon-heart.svg" alt="В обране"></button>
+                    </div>
+                </article>
+                
+                <!-- Картка Рекомендуємо 3 -->
+                <article class="product-card grid-card">
+                    <div class="image-wrapper">
+                        <img src="assets/images/fender.png" alt="Комбопідсилювач Fender">
+                    </div>
+                    <h3 class="product-title">Гітарний комбопідсилювач...</h3>
+                    <div class="card-bottom">
+                        <span class="price">4560.00 грн</span>
+                        <button class="like-btn"><img src="assets/icons/icon-heart.svg" alt="В обране"></button>
+                    </div>
+                </article>
+                
+                <!-- Картка Рекомендуємо 4 -->
+                <article class="product-card grid-card">
+                    <div class="image-wrapper">
+                        <img src="assets/images/harmonica.png" alt="Гармошка">
+                    </div>
+                    <h3 class="product-title">Гармошка губна Hohner...</h3>
+                    <div class="card-bottom">
+                        <span class="price">748.00 грн</span>
+                        <button class="like-btn"><img src="assets/icons/icon-heart.svg" alt="В обране"></button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Нижня навігаційна панель -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item active">
+            <img src="assets/icons/icon-home-active.svg" alt="Головна">
+            <span>Головна</span>
+        </a>
+        <a href="#" class="nav-item">
+            <img src="assets/icons/icon-catalog.svg" alt="Каталог">
+            <span>Каталог</span>
+        </a>
+        <a href="cart.html" class="nav-item">
+            <img src="assets/icons/icon-cart.svg" alt="Кошик">
+            <span>Кошик</span>
+        </a>
+        <a href="#" class="nav-item">
+            <img src="assets/icons/icon-profile.svg" alt="Профіль">
+            <span>Профіль</span>
+        </a>
+    </nav>
+    <!-- Підключення нашого скрипта -->
+    <script src="js/app.js"></script>
+</body>
+</body>
+</html>
