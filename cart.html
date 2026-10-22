@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кошик - CITYMUSIC</title>
+    
+    <!-- Підключення шрифту Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <!-- Шапка Кошика -->
+    <header class="top-bar">
+        <button class="circle-btn">
+            <img src="assets/icons/icon-back.svg" alt="Назад">
+        </button>
+        <h1 class="page-title">Мій кошик</h1>
+        <button class="circle-btn">
+            <img src="assets/icons/icon-more.svg" alt="Більше">
+        </button>
+    </header>
+
+    <main class="cart-container">
+        <!-- Список товарів -->
+        <div class="cart-list">
+            
+            <!-- Товар 1 -->
+            <article class="cart-item">
+                <div class="cart-image">
+                    <img src="assets/images/marshall.png" alt="MARSHALL MG15G">
+                </div>
+                <div class="item-info">
+                    <h3 class="item-title">MARSHALL MG15G</h3>
+                    <p class="item-category">Звук/Світло</p>
+                    <div class="item-bottom">
+                        <span class="price">3336.00 грн</span>
+                        <div class="counter">
+                            <button class="counter-btn">-</button>
+                            <span class="count">1</span>
+                            <button class="counter-btn plus">+</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <hr class="divider">
+
+            <!-- Товар 2 -->
+            <article class="cart-item">
+                <div class="cart-image">
+                    <img src="assets/images/bandura.png" alt="Бандура Acropolis">
+                </div>
+                <div class="item-info">
+                    <h3 class="item-title">Бандура Acropolis</h3>
+                    <p class="item-category">Гітари</p>
+                    <div class="item-bottom">
+                        <span class="price">39 536.00 грн</span>
+                        <div class="counter">
+                            <button class="counter-btn">-</button>
+                            <span class="count">1</span>
+                            <button class="counter-btn plus">+</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <hr class="divider">
+
+            <!-- Товар 3 -->
+            <article class="cart-item">
+                <div class="cart-image">
+                    <img src="assets/images/piano-white.png" alt="Цифрове піаніно Pearl River">
+                </div>
+                <div class="item-info">
+                    <h3 class="item-title">Цифрове піаніно Pearl River V03</h3>
+                    <p class="item-category">Клавішні</p>
+                    <div class="item-bottom">
+                        <span class="price">37 568.00 грн</span>
+                        <div class="counter">
+                            <button class="counter-btn">-</button>
+                            <span class="count">1</span>
+                            <button class="counter-btn plus">+</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Блок підсумку -->
+        <section class="order-summary">
+            <div class="summary-row">
+                <span>Підсумок:</span>
+                <span class="summary-val">80 440.00 грн</span>
+            </div>
+            <div class="summary-row">
+                <span>Доставка:</span>
+                <span class="summary-val">150.00 грн</span>
+            </div>
+            <div class="summary-row">
+                <span>Знижка:</span>
+                <span class="summary-val discount">- 500.00 грн</span>
+            </div>
+            
+            <hr class="divider line-dashed">
+            
+            <div class="summary-row total-row">
+                <span>До оплати:</span>
+                <span class="total-val">80 090.00 грн</span>
+            </div>
+
+            <button class="checkout-btn">Оформити замовлення</button>
+        </section>
+    </main>
+
+    <!-- Нижня навігаційна панель -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <img src="assets/icons/icon-home.svg" alt="Головна">
+            <span>Головна</span>
+        </a>
+        <a href="#" class="nav-item">
+            <img src="assets/icons/icon-catalog.svg" alt="Каталог">
+            <span>Каталог</span>
+        </a>
+        <a href="cart.html" class="nav-item active">
+            <img src="assets/icons/icon-cart-active.svg" alt="Кошик">
+            <span>Кошик</span>
+        </a>
+        <a href="#" class="nav-item">
+            <img src="assets/icons/icon-profile.svg" alt="Профіль">
+            <span>Профіль</span>
+        </a>
+    </nav>
+    <script src="js/app.js"></script>
+</body>
+</html>

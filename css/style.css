@@ -1,0 +1,603 @@
+/* Базове скидання відступів */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #F8F8F8;
+    padding-bottom: 100px; /* Щоб нижнє меню не перекривало останні товари */
+}
+
+.section-title {
+    font-size: 18px;
+    margin: 24px 16px 16px 16px;
+}
+
+/* ---------------------------------------------------
+   ВИМОГА ЛАБИ 1: CSS Grid (4-колонкова сітка з Фігми)
+--------------------------------------------------- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Робимо 2 колонки однакової ширини */
+    gap: 16px; /* Gutter (відстань між картками) = 16px */
+    padding: 0 16px; /* Margin (відступи від країв екрана) = 16px */
+}
+
+/* Дизайн самої картки */
+.product-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Твоя легка тінь */
+}
+
+.image-wrapper {
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    height: 104px; /* Висота кратна 8, як ми домовлялися */
+    margin-bottom: 12px;
+}
+
+.product-title {
+    font-size: 12px;
+    margin-bottom: 8px;
+    flex-grow: 1; /* Притискає ціну завжди до низу картки */
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Фіксація нижньої панелі */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 24px 34px 24px; /* 34px знизу - це наша Safe Area */
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05); /* Тінь падає вгору */
+}
+
+/* ---------------------------------------------------
+   ВИМОГА ЛАБИ 2: Адаптивність (Media Queries)
+--------------------------------------------------- */
+@media (max-width: 359px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* На дуже вузьких екранах сітка стає в 1 колонку */
+    }
+}
+/* --- БАНЕР --- */
+.banner {
+    padding: 16px;
+}
+
+.banner img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* --- ЗАГОЛОВКИ ТА ПОСИЛАННЯ --- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 16px;
+    margin-top: 8px; /* Трохи піднімаємо заголовок */
+}
+
+.section-header .section-title {
+    margin: 0 0 0 16px; /* Забираємо зайві відступи */
+}
+
+.view-all {
+    font-size: 12px;
+    color: #888888;
+    text-decoration: none;
+}
+
+/* --- ФІЛЬТРИ (КАТЕГОРІЇ) --- */
+.categories {
+    display: flex;
+    gap: 8px;
+    padding: 16px;
+    overflow-x: auto; /* Додає горизонтальний скрол */
+    scrollbar-width: none; /* Ховає смугу прокрутки (Firefox) */
+}
+
+.categories::-webkit-scrollbar {
+    display: none; /* Ховає смугу прокрутки (Chrome/Safari) */
+}
+
+.cat-btn {
+    padding: 6px 16px;
+    border-radius: 100px;
+    border: none;
+    background: #E5E5E5;
+    color: #333333;
+    font-size: 12px;
+    white-space: nowrap; /* Забороняє тексту переноситися */
+    cursor: pointer;
+}
+
+.cat-btn.active {
+    background: #A31C1C; /* Твій червоний */
+    color: #FFFFFF;
+}
+
+/* --- ГОРИЗОНТАЛЬНІ КАРТКИ НОВИНОК --- */
+.horizontal-scroll {
+    display: flex;
+    gap: 16px;
+    padding: 0 16px 16px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.horizontal-card {
+    min-width: 140px; /* Картки не будуть стискатися, а будуть скролитися */
+    flex-shrink: 0;
+}
+/* --- КРАСА ДЛЯ ШАПКИ --- */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #FFFFFF;
+}
+
+.logo {
+    color: #A31C1C; /* Твій фірмовий червоний колір */
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+}
+
+/* --- КРАСА ДЛЯ НИЖНЬОГО МЕНЮ --- */
+.nav-item {
+    text-decoration: none; /* Прибираємо синє підкреслення */
+    color: #888888; /* Робимо неактивні кнопки сірими */
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-item.active {
+    color: #A31C1C; /* Активна кнопка (Кошик або Головна) стає червоною */
+}
+
+/* --- РОБИМО ФОТОГРАФІЇ АКУРАТНИМИ --- */
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Картинки ідеально впишуться і не будуть плющитися */
+}
+.logo-img {
+    height: 24px; /* Або 32px, підбереш розмір, щоб виглядало гарно */
+    object-fit: contain;
+}
+/* --- Зображення та Іконки --- */
+.logo-img {
+    height: 24px;
+    object-fit: contain;
+}
+
+.icon-btn img, .like-btn img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- Оновлене нижнє меню з іконками --- */
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px; /* Відстань між іконкою і текстом */
+    text-decoration: none;
+    color: #888888;
+    font-size: 10px; /* Дрібний текст для меню */
+}
+
+.nav-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.nav-item.active {
+    color: #A31C1C;
+}
+/* Робимо красивий сучасний шрифт замість стандартного */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #F8F8F8;
+    padding-bottom: 90px;
+}
+
+/* Ідеальні квадратні фони для товарів */
+.image-wrapper {
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Робить блок ідеальним квадратом */
+    height: auto; /* Прибираємо стару жорстку висоту 104px */
+    margin-bottom: 12px;
+    padding: 12px; /* Додаємо відступ всередині сірого фону */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Картинка не плющиться і влазить повністю */
+}/* Картки в горизонтальному скролі */
+.horizontal-card {
+    min-width: 140px;
+    width: 140px; /* Жорстка ширина, щоб вони не розтягувалися */
+    flex: 0 0 auto; /* Забороняємо стискатися */
+}
+.product-title {
+    font-size: 13px;
+    font-weight: 500; /* Напівжирний шрифт */
+    line-height: 1.3;
+    margin-bottom: 8px;
+    color: #333333;
+    flex-grow: 1;
+}
+
+.price {
+    font-size: 15px;
+    font-weight: 800; /* Дуже жирний шрифт для ціни */
+    color: #000000;
+}
+
+/* Збільшуємо логотип у шапці */
+.logo-img {
+    height: 28px;
+    object-fit: contain;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F8F8F8;
+    padding-bottom: 90px;
+}
+/* --- СТОСТІНКА КОШИКА --- */
+.cart-container {
+    padding: 24px 16px;
+}
+
+.page-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.circle-btn {
+    width: 40px;
+    height: 40px;
+    background-color: #F5F5F5;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cart-item {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.cart-image {
+    width: 88px;
+    height: 88px;
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    padding: 8px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.item-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.item-category {
+    font-size: 12px;
+    color: #888888;
+    margin-bottom: 12px;
+}
+
+.item-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Лічильник */
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #F3F4F6;
+    border-radius: 100px;
+    padding: 4px 8px;
+}
+
+.counter-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.counter-btn.plus {
+    background-color: #000;
+    color: #FFF;
+}
+
+.count {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Лінії та Блок Підсумку */
+.divider {
+    border: none;
+    border-top: 1px solid #EEEEEE;
+    margin: 16px 0;
+}
+
+.line-dashed {
+    border-top: 1px dashed #E0E0E0;
+    margin: 24px 0;
+}
+
+.order-summary {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #888888;
+}
+
+.summary-val {
+    color: #000000;
+    font-weight: 600;
+}
+
+.discount {
+    color: #A31C1C;
+}
+
+.total-row {
+    font-size: 16px;
+    color: #000000;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.total-val {
+    font-size: 18px;
+}
+
+/* Велика кнопка */
+.checkout-btn {
+    width: 100%;
+    height: 56px;
+    background-color: #A31C1C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+}/* М'які тіні та ідеальні розміри для карток */
+.product-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    /* Твоя м'яка тінь з Фігми: Y:4, Blur:16, Прозорість 6% */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); 
+}
+
+/* Специфічні налаштування для Новинок (із серцем зверху зліва) */
+.horizontal-card {
+    min-width: 144px;
+    width: 144px;
+    flex: 0 0 auto;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute-heart {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: #FFFFFF; /* Білий кружечок під серцем, як у додатках */
+    border-radius: 50%;
+    padding: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* --- ІДЕАЛЬНА НИЖНЯ ПАНЕЛЬ --- */
+.main-content {
+    /* Робимо відступ знизу, щоб товари не ховалися під меню */
+    padding-bottom: 110px; 
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Відступи по 24px по боках, 32px знизу для "Мертвої зони" свайпу */
+    padding: 12px 24px 32px 24px;
+    /* Тінь падає вгору (Y: -2) */
+    box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.05);
+    z-index: 100; /* Панель завжди поверх усього */
+}/* Збільшуємо верхні іконки */
+.icon-btn img {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+/* Збільшуємо іконки нижнього меню */
+.nav-item img {
+    width: 28px; /* Можеш поставити 32px, якщо треба ще більші */
+    height: 28px;
+    margin-bottom: 2px;
+}
+
+/* Збільшуємо розмір шрифту в нижньому меню для пропорційності */
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: #888888;
+    font-size: 11px; /* Трохи збільшили текст */
+    font-weight: 500;
+}/* Збільшуємо верхні іконки */
+.icon-btn img {
+    width: 28px !important;
+    height: 28px !important;
+    display: block;
+}
+
+/* Збільшуємо іконки нижнього меню */
+.nav-item img {
+    width: 28px !important;
+    height: 28px !important;
+    margin-bottom: 2px;
+}/* --- ІДЕАЛЬНА ШАПКА (без смужок) --- */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 16px 12px 16px; /* Вирівнюємо відступи як у Фігмі */
+    background-color: transparent; /* Робимо фон прозорим, щоб він зливався зі сторінкою */
+    border-bottom: none !important; /* Жорстко прибираємо будь-яку смужку знизу */
+    box-shadow: none !important; /* Прибираємо тінь */
+}
+
+/* --- ВЕЛИКИЙ ЛОГОТИП --- */
+.logo-img {
+    height: 36px !important; /* Суттєво збільшуємо логотип */
+    width: auto; /* Забороняємо йому сплющуватися */
+    object-fit: contain;
+}
+
+/* --- ВЕЛИКІ ІКОНКИ ШАПКИ --- */
+.icon-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn img {
+    width: 32px !important; /* Робимо іконки масивнішими, як на макеті */
+    height: 32px !important;
+    display: block;
+}/* --- Анімація карток при наведенні (Hover) --- */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавний перехід */
+}
+
+/* Коли наводимо мишкою - картка піднімається на 5px вгору */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Тінь стає більшою */
+}
+
+/* --- Активний стан для сердечка --- */
+.like-btn {
+    transition: background-color 0.3s ease;
+    border-radius: 50%; /* Робимо фон круглим, якщо він ще не такий */
+}
+
+/* Клас, який буде додавати JavaScript при кліку */
+.like-btn.active-heart {
+    background-color: #A31C1C; /* Твій фірмовий червоний */
+}
+
+/* Фарбуємо саму іконку в білий колір, коли серце активне */
+.like-btn.active-heart img {
+    filter: brightness(0) invert(1);
+}
